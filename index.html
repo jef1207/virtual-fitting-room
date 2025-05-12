@@ -1,1 +1,27 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Telegram Virtual Fitting Room</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Подключение стилей -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Библиотеки -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js"></script>
+</head>
+<body>
+  <!-- Интерфейс -->
+  <div class="container">
+    <video id="camera" class="camera-feed" autoplay playsinline></video>
+    <canvas id="canvas3d" class="canvas-3d"></canvas>
+    <div class="clothing-menu">
+      <button onclick="loadModel('tshirt')">Футболка</button>
+      <button onclick="loadModel('hat')">Шляпа</button>
+    </div>
+  </div>
+  <!-- Скрипты -->
+  <script src="app.js"></script>
+</body>
+</html>
