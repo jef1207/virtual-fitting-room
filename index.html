@@ -1,27 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-  <title>Telegram Virtual Fitting Room</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Подключение стилей -->
-  <link rel="stylesheet" href="style.css">
-  <!-- Библиотеки -->
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Fitting Room</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8/hammer.min.js"></script>
 </head>
 <body>
-  <!-- Интерфейс -->
-  <div class="container">
-    <video id="camera" class="camera-feed" autoplay playsinline></video>
-    <canvas id="canvas3d" class="canvas-3d"></canvas>
-    <div class="clothing-menu">
-      <button onclick="loadModel('tshirt')">Футболка</button>
-      <button onclick="loadModel('hat')">Шляпа</button>
+    <div class="loading-screen" id="loading">
+        <div class="spinner"></div>
+        <p>Инициализация камеры...</p>
     </div>
-  </div>
-  <!-- Скрипты -->
-  <script src="app.js"></script>
+    
+    <div class="error-alert" id="errorAlert"></div>
+    
+    <div class="container">
+        <video id="camera" class="camera-feed" autoplay playsinline></video>
+        <canvas id="canvas3d" class="canvas-3d"></canvas>
+        
+        <div class="controls">
+            <div class="clothing-menu">
+                <button class="cloth-btn" onclick="loadModel('tshirt')">👕</button>
+                <button class="cloth-btn" onclick="loadModel('dress')">👗</button>
+                <button class="cloth-btn" onclick="loadModel('hat')">🧢</button>
+            </div>
+            <div class="tools">
+                <button class="tool-btn" onclick="toggleZoom()">🔍</button>
+                <button class="tool-btn" onclick="toggleRotate()">🔄</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
 </body>
 </html>
